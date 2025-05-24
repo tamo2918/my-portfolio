@@ -47,6 +47,8 @@ AIがタスクを細分化するアプリケーション
 
 ## 🚀 開発・デプロイ
 
+### ローカル開発
+
 ```bash
 # 依存関係のインストール
 npm install
@@ -60,6 +62,61 @@ npm run build
 # 本番サーバー起動
 npm start
 ```
+
+### Vercelデプロイ
+
+#### 🔗 ワンクリックデプロイ
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/tamo2918/my-portfolio)
+
+#### 📋 手動デプロイ手順
+
+1. **Vercelアカウント作成/ログイン**
+   ```
+   https://vercel.com
+   ```
+
+2. **GitHubとの連携**
+   - Vercelダッシュボードで「New Project」をクリック
+   - GitHubアカウントを連携
+   - `tamo2918/my-portfolio` リポジトリを選択
+
+3. **プロジェクト設定**
+   ```
+   Framework Preset: Next.js
+   Root Directory: ./
+   Build Command: npm run build
+   Output Directory: .next
+   Install Command: npm install
+   ```
+
+4. **デプロイ実行**
+   - 「Deploy」ボタンをクリック
+   - 自動ビルド・デプロイが開始
+   - 完了後、URLが生成される
+
+#### 🔧 Vercel CLI でのデプロイ
+
+```bash
+# Vercel CLI インストール
+npm i -g vercel
+
+# ログイン
+vercel login
+
+# プロジェクトディレクトリでデプロイ
+vercel
+
+# 本番デプロイ
+vercel --prod
+```
+
+#### 🌐 カスタムドメイン設定
+
+1. Vercelダッシュボードでプロジェクトを選択
+2. 「Settings」→「Domains」
+3. カスタムドメインを追加
+4. DNS設定を行う
 
 ## 📞 コンタクト
 
