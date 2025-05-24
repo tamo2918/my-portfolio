@@ -226,25 +226,21 @@ export default function Home() {
                 <div className="w-full h-full rounded-full bg-gradient-to-br from-blue-400 via-purple-500 to-pink-500 p-1">
                   <div className="w-full h-full rounded-full bg-background border-2 border-background overflow-hidden relative">
                     {/* プロフィール画像 */}
-                    <div className="w-full h-full bg-gradient-to-br from-blue-500/20 via-purple-500/20 to-pink-500/20 flex items-center justify-center relative">
-                      <motion.div
-                        className="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center shadow-lg"
-                        animate={{ 
-                          scale: [1, 1.05, 1],
-                          rotate: [0, 5, -5, 0]
-                        }}
-                        transition={{ 
-                          duration: 4, 
-                          repeat: Infinity,
-                          ease: "easeInOut"
-                        }}
-                      >
-                        <span className="text-2xl font-bold text-white">T</span>
-                      </motion.div>
-                      {/* 背景パターン */}
-                      <div className="absolute inset-0 opacity-10">
-                        <div className="w-full h-full bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500"></div>
-                      </div>
+                    <Image
+                      src="/images/icon.PNG"
+                      alt="Profile"
+                      fill
+                      className="object-cover"
+                      priority
+                      onError={(e) => {
+                        // フォールバック：画像が見つからない場合はプレースホルダーを表示
+                        const target = e.target as HTMLImageElement;
+                        target.style.display = 'none';
+                      }}
+                    />
+                    {/* フォールバック用プレースホルダー */}
+                    <div className="w-full h-full bg-gradient-to-br from-muted-foreground/20 to-muted-foreground/40 flex items-center justify-center">
+                      {/* Tの文字を削除 */}
                     </div>
                   </div>
                 </div>
@@ -645,8 +641,8 @@ function SocialLink({ href, icon, label, color }: { href: string; icon: React.Re
   return (
     <motion.a
       href={href}
-      target="_blank"
-      rel="noopener noreferrer"
+          target="_blank"
+          rel="noopener noreferrer"
       className={`p-4 rounded-full border border-border hover:bg-muted transition-all duration-300 ${color}`}
       whileHover={{ 
         y: -5,
@@ -694,8 +690,8 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
             {project.liveUrl && (
               <motion.a
                 href={project.liveUrl}
-                target="_blank"
-                rel="noopener noreferrer"
+          target="_blank"
+          rel="noopener noreferrer"
                 className="p-3 bg-white/20 backdrop-blur-sm rounded-full hover:bg-white/30 transition-colors"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
@@ -855,8 +851,8 @@ function SocialCard({
   return (
     <motion.a
       href={href}
-      target="_blank"
-      rel="noopener noreferrer"
+          target="_blank"
+          rel="noopener noreferrer"
       className="flex flex-col items-center justify-center p-6 bg-card/50 backdrop-blur-sm border border-border rounded-xl transition-all duration-300 hover:bg-muted/50 hover:shadow-glow"
       whileHover={{ 
         y: -5,
