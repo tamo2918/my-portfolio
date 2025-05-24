@@ -1,9 +1,6 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
-  output: 'standalone',
-  
   // 画像最適化
   images: {
     formats: ['image/webp', 'image/avif'],
@@ -42,16 +39,6 @@ const nextConfig: NextConfig = {
         ],
       },
     ];
-  },
-
-  // リダイレクト設定（必要に応じて）
-  async redirects() {
-    return [];
-  },
-
-  // リライト設定（必要に応じて）
-  async rewrites() {
-    return [];
   },
 };
 
