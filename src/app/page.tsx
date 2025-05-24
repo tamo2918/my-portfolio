@@ -234,7 +234,8 @@ export default function Home() {
                       priority
                       onError={(e) => {
                         // フォールバック：画像が見つからない場合はプレースホルダーを表示
-                        e.currentTarget.style.display = 'none';
+                        const target = e.target as HTMLImageElement;
+                        target.style.display = 'none';
                       }}
                     />
                     {/* フォールバック用プレースホルダー */}
