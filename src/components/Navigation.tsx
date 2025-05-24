@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { motion } from "framer-motion";
 import { Moon, Sun, Menu, X } from "lucide-react";
 import { useTheme } from "@/app/providers";
@@ -11,12 +11,12 @@ export function Navigation() {
   const [activeSection, setActiveSection] = useState("home");
   const { theme, toggleTheme } = useTheme();
 
-  const navItems = [
+  const navItems = useMemo(() => [
     { href: "#home", label: "Home", id: "home" },
     { href: "#projects", label: "Projects", id: "projects" },
     { href: "#blog", label: "Blog", id: "blog" },
     { href: "#contact", label: "Contact", id: "contact" },
-  ];
+  ], []);
 
   useEffect(() => {
     const handleScroll = () => {
