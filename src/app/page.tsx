@@ -2,12 +2,38 @@
 
 import { useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { ArrowRight, Github, Twitter, Mail, ExternalLink, Calendar, Clock, Phone, MapPin, Linkedin, Send, Heart, Star, Zap, Code, Palette } from "lucide-react";
+import { ArrowRight, Github, Twitter, Mail, ExternalLink, Calendar, Clock, Phone, MapPin, Linkedin, Send, Star, Zap, Code, Palette } from "lucide-react";
 import Image from "next/image";
 import { AnimatedBackground, FloatingElements } from "@/components/AnimatedBackground";
 
+// 型定義
+interface Project {
+  id: string;
+  title: string;
+  description: string;
+  longDescription?: string;
+  technologies: string[];
+  liveUrl?: string;
+  featured: boolean;
+  status: string;
+  color: string;
+  icon: string;
+}
+
+interface BlogPost {
+  id: string;
+  title: string;
+  excerpt: string;
+  date: string;
+  readTime: number;
+  tags: string[];
+  featured: boolean;
+  url: string;
+  color: string;
+}
+
 // プロジェクトデータ
-const projects = [
+const projects: Project[] = [
   {
     id: "1",
     title: "BranchDo",
@@ -47,7 +73,7 @@ const projects = [
 ];
 
 // ブログ投稿データ（RSS から取得した実際の記事）
-const blogPosts = [
+const blogPosts: BlogPost[] = [
   {
     id: "1",
     title: "驚異の進化！Gensparkから自ら動くAI、Super Agent誕生",
@@ -630,7 +656,7 @@ function SocialLink({ href, icon, label, color }: { href: string; icon: React.Re
   );
 }
 
-function ProjectCard({ project, index }: { project: any; index: number }) {
+function ProjectCard({ project, index }: { project: Project; index: number }) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -717,7 +743,7 @@ function ProjectCard({ project, index }: { project: any; index: number }) {
   );
 }
 
-function BlogCard({ post, index }: { post: any; index: number }) {
+function BlogCard({ post, index }: { post: BlogPost; index: number }) {
   return (
     <motion.article
       initial={{ opacity: 0, y: 20 }}
