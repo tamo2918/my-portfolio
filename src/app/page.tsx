@@ -226,21 +226,25 @@ export default function Home() {
                 <div className="w-full h-full rounded-full bg-gradient-to-br from-blue-400 via-purple-500 to-pink-500 p-1">
                   <div className="w-full h-full rounded-full bg-background border-2 border-background overflow-hidden relative">
                     {/* プロフィール画像 */}
-                    <Image
-                      src="/images/icon.png"
-                      alt="Profile"
-                      fill
-                      className="object-cover"
-                      priority
-                      onError={(e) => {
-                        // フォールバック：画像が見つからない場合はプレースホルダーを表示
-                        const target = e.target as HTMLImageElement;
-                        target.style.display = 'none';
-                      }}
-                    />
-                    {/* フォールバック用プレースホルダー */}
-                    <div className="w-full h-full bg-gradient-to-br from-muted-foreground/20 to-muted-foreground/40 flex items-center justify-center">
-                      {/* Tの文字を削除 */}
+                    <div className="w-full h-full bg-gradient-to-br from-blue-500/20 via-purple-500/20 to-pink-500/20 flex items-center justify-center relative">
+                      <motion.div
+                        className="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center shadow-lg"
+                        animate={{ 
+                          scale: [1, 1.05, 1],
+                          rotate: [0, 5, -5, 0]
+                        }}
+                        transition={{ 
+                          duration: 4, 
+                          repeat: Infinity,
+                          ease: "easeInOut"
+                        }}
+                      >
+                        <span className="text-2xl font-bold text-white">T</span>
+                      </motion.div>
+                      {/* 背景パターン */}
+                      <div className="absolute inset-0 opacity-10">
+                        <div className="w-full h-full bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500"></div>
+                      </div>
                     </div>
                   </div>
                 </div>
