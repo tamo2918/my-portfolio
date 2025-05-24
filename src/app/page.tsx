@@ -236,11 +236,12 @@ export default function Home() {
                         // フォールバック：画像が見つからない場合はプレースホルダーを表示
                         const target = e.target as HTMLImageElement;
                         target.style.display = 'none';
+                        console.log('Profile image failed to load, showing fallback');
                       }}
                     />
-                    {/* フォールバック用プレースホルダー */}
-                    <div className="w-full h-full bg-gradient-to-br from-muted-foreground/20 to-muted-foreground/40 flex items-center justify-center">
-                      {/* Tの文字を削除 */}
+                    {/* フォールバック用プレースホルダー - 画像が読み込まれない場合に表示 */}
+                    <div className="w-full h-full bg-gradient-to-br from-blue-400 to-purple-500 flex items-center justify-center text-white font-bold text-2xl">
+                      T
                     </div>
                   </div>
                 </div>
